@@ -1,0 +1,12 @@
+{
+    "intelephense.environment.includePaths": [
+      "/Users/danielpincu/Local Sites/esbjerg-board-games/app/public/wp-includes",
+      "/Users/danielpincu/Local Sites/esbjerg-board-games/app/public/wp-admin",
+      "/Users/danielpincu/Local Sites/esbjerg-board-games/app/public/wp-content/plugins/advanced-custom-fields",
+      "/Users/danielpincu/Local Sites/esbjerg-board-games/app/public/wp-content/plugins/polylang"
+    ]
+  }
+  
+        
+      
+  
