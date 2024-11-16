@@ -3,3 +3,171 @@ Title: Climate Action
 Author: Catalina Vrinceanu & Daniel Pincu
 Date: 2024
 */
+
+
+/* Parallax Effect */
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+.hero-text h1 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    animation: fadeIn 1.5s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}
+.parallax .bg-overlay {
+    height: 100%;
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+.hover-effect:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+/* .about-section, .schedule-section {
+    background: linear-gradient(135deg, rgba(255, 97, 97, 0.8) 50%, rgba(0, 212, 28, 0.5) 100%);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+} */
+/* Dice Rolling Animation */
+@keyframes dice-roll {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(90deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(270deg); }
+    100% { transform: rotate(360deg); }
+}
+.dice-icon {
+    animation: dice-roll 3s ease-in-out infinite;
+}
+/* Game Card Hover Effects */
+.game-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.game-card:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+}
+
+
+.games-carousel-container {
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.games-carousel {
+    display: flex;
+    animation: scroll 30s linear infinite;
+}
+
+.game-item {
+    flex: 0 0 auto;
+    width: 150px; /* Adjust based on your preference */
+    margin: 0 20px;
+    text-align: center;
+}
+
+.game-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.game-item p {
+    margin-top: 10px;
+    color: #470073; /* Pink color to match your theme */
+    font-weight: bold;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-170px * 4)); /* (width + margin) * number of unique items */
+    }
+}
+
+/* Optional: Pause animation on hover */
+.games-carousel-container:hover .game-carousel {
+    animation-play-state: paused;
+}
+
+
+/* Snow Animation */
+.snowflake {
+    color: #fff;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    position: fixed;
+    top: -10%;
+    z-index: 9999;
+    user-select: none;
+    cursor: default;
+    animation: snowfall 10s linear infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/* gallery */
+
+.gallery-image {
+    transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+
+#imagePopup {
+    transition: opacity 0.3s ease;
+}
+
+#imagePopup.show {
+    display: flex;
+    opacity: 1;
+}
+
+
+/* game */
+

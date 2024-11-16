@@ -7,6 +7,6 @@ function boardgames_resources() {
     wp_enqueue_style("boardgames-style", get_template_directory_uri() . "/style.css");
     
     // Enqueue custom JavaScript file
-    wp_enqueue_script("boardgames-js", get_template_directory_uri() . "script.js", array(), false, true);
+    wp_enqueue_script("boardgames-js", get_template_directory_uri() . "/script.js", array(), false, true);
 }
 add_action("wp_enqueue_scripts", "boardgames_resources");
