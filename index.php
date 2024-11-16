@@ -61,61 +61,53 @@
     </div>
     <div class="games-carousel-container">
         <div class="games-carousel">
-            <!-- Original set of games -->
-            <div class="game-item">
-                <img src="img/dye_catan_150407_0564.jpg" alt="Catan boardgame">
-                <p>Catan</p>
-            </div>
-            <div class="game-item">
-                <img src="img/monopoly.webp" alt="Monopoly boardgame">
-                <p>Monopoly</p>
-            </div>
-            <div class="game-item">
-                <img src="img/chess.jpg" alt="Chess boardgame">
-                <p>Chess</p>
-            </div>
-            <div class="game-item">
-                <img src="img/cascadia.webp" alt="Cascadia boargame">
-                <p>Cascadia</p>
-            </div>
-            <!-- Duplicate the set twice more for seamless scrolling -->
-            <!-- ... (repeat the above game items two more times) ... -->
-            <div class="game-item">
-                <img src="img/dye_catan_150407_0564.jpg" alt="Catan boardgame">
-                <p>Catan</p>
-            </div>
-            <div class="game-item">
-                <img src="img/monopoly.webp" alt="Monopoly boardgame">
-                <p>Monopoly</p>
-            </div>
-            <div class="game-item">
-                <img src="img/chess.jpg" alt="Chess boardgame">
-                <p>Chess</p>
-            </div>
-            <div class="game-item">
-                <img src="img/cascadia.webp" alt="Cascadia boargame">
-                <p>Cascadia</p>
-            </div>
-            <div class="game-item">
-                <img src="img/dye_catan_150407_0564.jpg" alt="Catan boardgame">
-                <p>Catan</p>
-            </div>
-            <div class="game-item">
-                <img src="img/monopoly.webp" alt="Monopoly boardgame">
-                <p>Monopoly</p>
-            </div>
-            <div class="game-item">
-                <img src="img/chess.jpg" alt="Chess boardgame">
-                <p>Chess</p>
-            </div>
-            <div class="game-item">
-                <img src="img/cascadia.webp" alt="Cascadia boargame">
-                <p>Cascadia</p>
-            </div>
-            
+            <?php
+            // Custom Query for the 'game' CPT
+            $args = array(
+                'post_type' => 'game',  // Custom post type 'game'
+                'posts_per_page' => -1, // Get all the posts
+            );
+            $game_query = new WP_Query($args);
+
+            // Check if there are posts
+            if ($game_query->have_posts()) :
+                $games = [];
+                // First loop to get all the games
+                while ($game_query->have_posts()) : $game_query->the_post();
+                    // Get the ACF custom field 'game-image' which should return an array with 'url', 'alt', 'id', etc.
+                    $game_image = get_field('game-image'); // Get the image field as an array
+
+                    $games[] = [
+                        'title' => get_the_title(),
+                        'image_url' => $game_image ? $game_image['url'] : '',
+                        'image_alt' => $game_image && isset($game_image['alt']) ? $game_image['alt'] : get_the_title() // Use alt text or fallback to title
+                    ];
+                endwhile;
+                wp_reset_postdata(); // Reset the global post object
+
+                // Now output the games in three copies for seamless scrolling
+                for ($i = 0; $i < 9; $i++) :
+                    foreach ($games as $game) :
+                        ?>
+                        <div class="game-item">
+                            <!-- Display the image from ACF if available -->
+                            <?php if ($game['image_url']) : ?>
+                                <img src="<?php echo esc_url($game['image_url']); ?>" alt="<?php echo esc_attr($game['image_alt']); ?>">
+                            <?php endif; ?>
+                            <p><?php echo esc_html($game['title']); ?></p> <!-- Display the game title -->
+                        </div>
+                        <?php
+                    endforeach;
+                endfor;
+            else :
+                echo '<p>No games found.</p>'; // Fallback message if no games are found
+            endif;
+            ?>
         </div>
     </div>
 </section>
+
+
 
     <!-- Schedule Section -->
     <section id="schedule" class="schedule-section bg-gradient-to-r from-indigo-300 to-indigo-500 flex items-center justify-center text-white py-12">

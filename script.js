@@ -1,25 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Parallax effect for hero section
-    window.addEventListener('scroll', () => {
-        const parallax = document.querySelector('.parallax');
-        let scrollPosition = window.pageYOffset;
-        parallax.style.backgroundPositionY = scrollPosition * 0.7 + 'px';
-    });
+// document.addEventListener('DOMContentLoaded', () => {
+//     // Parallax effect for hero section
+//     window.addEventListener('scroll', () => {
+//         const parallax = document.querySelector('.parallax');
+//         let scrollPosition = window.pageYOffset;
+//         parallax.style.backgroundPositionY = scrollPosition * 0.7 + 'px';
+//     });
 
-    // Game hover sound effect (optional)
-    const gameCards = document.querySelectorAll('.game-card');
-    gameCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.classList.add('animate-bounce');
-        });
-        card.addEventListener('mouseleave', () => {
-            card.classList.remove('animate-bounce');
-        });
-    });
-});
+//     // Game hover sound effect (optional)
+//     const gameCards = document.querySelectorAll('.game-card');
+//     gameCards.forEach(card => {
+//         card.addEventListener('mouseenter', () => {
+//             card.classList.add('animate-bounce');
+//         });
+//         card.addEventListener('mouseleave', () => {
+//             card.classList.remove('animate-bounce');
+//         });
+//     });
+// });
 
 
 // Snowflake creation
+
+
 function createSnowflake() {
     const snowflake = document.createElement('div');
     snowflake.classList.add('snowflake');
@@ -34,6 +36,7 @@ function createSnowflake() {
     }, 5000);
 }
 
+//Comment out the following line 40 to stop the snowflakes
 setInterval(createSnowflake, 200); // Create a new snowflake every 200ms
 
 
