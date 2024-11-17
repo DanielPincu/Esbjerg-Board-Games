@@ -10,3 +10,10 @@ function boardgames_resources() {
     wp_enqueue_script("boardgames-js", get_template_directory_uri() . "/script.js", array(), false, true);
 }
 add_action("wp_enqueue_scripts", "boardgames_resources");
+
+// Function to remove Gutenberg editor
+function remove_gutenberg() {
+    // remove_post_type_support("post", "editor");
+    remove_post_type_support("page", "editor");
+}
+add_action("init", "remove_gutenberg");
