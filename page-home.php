@@ -26,7 +26,7 @@
 
     <!-- Hero Section with Parallax Effect -->
     <section 
-    class="bg-[url('<?php echo esc_url(get_field('hero_image')['url']); ?>')] h-screen bg-fixed bg-cover bg-center relative"
+    class="bg-[url('<?php echo esc_url(get_field('hero_image')['url']); ?>')] parallax h-screen bg-cover bg-center relative"
     aria-label="<?php echo esc_attr(get_field('hero_image')['alt']); ?>">
 
 
