@@ -39,7 +39,8 @@
             <p class="text-xl bg-green-500 md:bg-transparent"><?php echo esc_html(get_field('core_narrative')); ?></p>
             <div class="mt-6 flex justify-center">
                 <a href="#about" class="text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">About</a>
-                <a href="signup.html" class="ml-4 text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('join'))); ?>" class="ml-4 text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
+
             </div>
         </div>
     </section>
@@ -47,12 +48,13 @@
     <!-- About Section -->
     <section id="about" class="about-section text-center py-12 bg-gradient-to-b from-green-50 to-white">
         <div class="container mx-auto px-4 relative">
-            <h2 class="text-4xl font-semibold text-blue-800"><?php echo esc_html(get_field('edition_name')); ?> of Boardgame Night</h2>
+            <h2 class="text-4xl font-semibold text-blue-800"><?php echo esc_html(get_field('edition_name')); ?> of <?php echo esc_html(get_field('club_name')); ?></h2>
             <p class="mt-6 text-lg max-w-2xl mx-auto text-gray-700 bg-white bg-opacity-70 p-4 rounded-lg shadow-sm">
             <?php echo esc_html(get_field('edition_description')); ?>
             </p>
             <div class="mt-8 flex justify-center space-x-4">
-                <a href="signup.html" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">Join Us</a>
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('join'))); ?>" class="ml-4 text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
+
                 <a href="#schedule" class="inline-block px-6 py-3 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition duration-300 shadow-md">View Schedule</a>
             </div>
         </div>
