@@ -45,7 +45,7 @@ Date: 2024
 .parallax .bg-overlay {
     height: 100%;
     position: absolute;
-    width: 100vw;
+    width: 90vw;
     top: 0;
     left: 0;
     z-index: 1;
@@ -98,7 +98,7 @@ Date: 2024
 
 .game-item {
     flex: 0 0 auto;
-    width: 150px; /* Adjust based on your preference */
+    width: 150px; 
     margin: 0 20px;
     text-align: center;
 }
@@ -111,7 +111,7 @@ Date: 2024
 
 .game-item p {
     margin-top: 10px;
-    color: #470073; /* Pink color to match your theme */
+    color: #470073; 
     font-weight: bold;
 }
 

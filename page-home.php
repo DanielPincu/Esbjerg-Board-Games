@@ -34,9 +34,9 @@
 
         <div class="bg-overlay"></div>
         <div class="hero-text">
-            <h1 class="text-5xl font-bold">Esbjerg</h1>
-            <h1 class="text-5xl font-bold">Boardgame Night</h1>
-            <p class="text-xl">Join the Fun, Every Second Friday</p>
+            <h1 class="text-5xl font-bold"><?php echo esc_html(get_field('city')); ?></h1>
+            <h1 class="text-5xl font-bold"><?php echo esc_html(get_field('club_name')); ?></h1>
+            <p class="text-xl bg-green-500 md:bg-transparent"><?php echo esc_html(get_field('core_narrative')); ?></p>
             <div class="mt-6 flex justify-center">
                 <a href="#about" class="text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">About</a>
                 <a href="signup.html" class="ml-4 text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
@@ -47,9 +47,9 @@
     <!-- About Section -->
     <section id="about" class="about-section text-center py-12 bg-gradient-to-b from-green-50 to-white">
         <div class="container mx-auto px-4 relative">
-            <h2 class="text-4xl font-semibold text-blue-800">Winter Edition of Boardgame Night</h2>
+            <h2 class="text-4xl font-semibold text-blue-800"><?php echo esc_html(get_field('edition_name')); ?> of Boardgame Night</h2>
             <p class="mt-6 text-lg max-w-2xl mx-auto text-gray-700 bg-white bg-opacity-70 p-4 rounded-lg shadow-sm">
-                Every second Friday, board game enthusiasts from all around Esbjerg gather for a night of laughter, competition, and community. Join us for classic games and new challenges in a welcoming environment! 🎲❄️
+            <?php echo esc_html(get_field('edition_description')); ?>
             </p>
             <div class="mt-8 flex justify-center space-x-4">
                 <a href="signup.html" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">Join Us</a>
@@ -89,8 +89,8 @@
                 endwhile;
                 wp_reset_postdata();
 
-                // Now duplicate the games 3 times for seamless scrolling
-                for ($i = 0; $i < 3; $i++) : // 3 times for seamless scroll
+                // Now duplicate the games 9 times for seamless scrolling
+                for ($i = 0; $i < 9; $i++) : // 9 times for seamless scroll
                     foreach ($games as $game) :
                         ?>
                         <div class="game-item">
@@ -115,52 +115,107 @@
 
     <!-- Schedule Section -->
     <section id="schedule" class="schedule-section bg-gradient-to-r from-indigo-300 to-indigo-500 flex items-center justify-center text-white py-12">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center">
-            <div class="md:w-1/2 mb-8 md:mb-0">
-                <h3 class="text-3xl font-semibold text-black text-center">The Winter Edition</h3>
-                <ul class="mt-6 space-y-4 bg-white p-6 rounded-lg shadow-lg">
-                    <li class="flex justify-between text-lg text-gray-700">
-                        <span><img src="https://img.icons8.com/ios/50/000000/dice.png" class="dice-icon inline-block w-6 h-6 mr-2" alt="dice"> Friday, January 12th - Mystery Night</span>
-                        <span>7:00 PM</span>
-                    </li>
-                    <li class="flex justify-between text-lg text-gray-700">
-                        <span><img src="https://img.icons8.com/ios/50/000000/dice.png" class="dice-icon inline-block w-6 h-6 mr-2" alt="dice"> Friday, January 26th - Strategy Showdown</span>
-                        <span>7:00 PM</span>
-                    </li>
-                    <li class="flex justify-between text-lg text-gray-700">
-                        <span><img src="https://img.icons8.com/ios/50/000000/dice.png" class="dice-icon inline-block w-6 h-6 mr-2" alt="dice"> Friday, February 9th - Family Fun Night</span>
-                        <span>7:00 PM</span>
-                    </li>
-                    <li class="flex justify-between text-lg text-gray-700">
-                        <span><img src="https://img.icons8.com/ios/50/000000/dice.png" class="dice-icon inline-block w-6 h-6 mr-2" alt="dice"> Friday, February 23rd - Party Games</span>
-                        <span>7:00 PM</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+            <h3 class="text-3xl font-semibold text-black text-center">
+                <?php echo esc_html(get_field('edition_name')); ?>
+            </h3>
+            <ul class="mt-6 space-y-4 bg-white p-6 rounded-lg shadow-lg">
+                <?php
+                // Query the 'schedule' CPT
+                $schedule_query = new WP_Query([
+                    'post_type'      => 'schedule',
+                    'posts_per_page' => -1, // Fetch all posts
+                    'meta_key'       => 'game_date', // Replace with your ACF field name
+                    'orderby'        => 'meta_value',
+                    'order'          => 'ASC', // Sort in ascending order by date/time
+                    'meta_type'      => 'DATETIME', // Let WP know this is a datetime field
+                ]);
 
-    <section id="gallery" class="gallery-section bg-white my-12">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-semibold">Event Highlights</h2>
-            <p class="mt-4 text-gray-600">Explore memorable moments from previous Boardgame Nights!</p>
-            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <img src="https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/21bc1df9369c4b1c870d96b783c0dc46~tplv-dx0w9n1ysr-resize-jpeg:800:800.jpeg?from=1826719393" alt="Gallery Image 1" class="gallery-image rounded-lg shadow-md hover-effect w-full h-48 object-cover cursor-pointer">
-                <img src="https://adventurerstable.com/wp-content/uploads/2024/08/boardgame-nights-charlotte-nc-1024x585.webp" alt="Gallery Image 2" class="gallery-image rounded-lg shadow-md hover-effect w-full h-48 object-cover cursor-pointer">
-                <img src="https://cdn-az.allevents.in/events7/banners/16a27d3434bab514ce0c696879d865d7ff8ddec9f78c4571aba39c316400ca13-rimg-w1200-h785-dca47c5d-gmir?v=1719342419" alt="Gallery Image 3" class="gallery-image rounded-lg shadow-md hover-effect w-full h-48 object-cover cursor-pointer">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8jfx-DquRK_JfoYeaxfO_NHxXl0wzh8up_us7zz-aT_-r9LqdTeKkPM0ddh28cWr2cFU&usqp=CAU" alt="Gallery Image 4" class="gallery-image rounded-lg shadow-md hover-effect w-full h-48 object-cover cursor-pointer">
-                <img src="https://venicebeachbar.com/wp-content/uploads/2023/12/boardgame-and-bars.jpg" alt="Gallery Image 5" class="gallery-image rounded-lg shadow-md hover-effect w-full h-48 object-cover cursor-pointer">
-                <img src="https://m.media-amazon.com/images/I/91AQFGJWAxL._AC_UF894,1000_QL80_.jpg" alt="Gallery Image 6" class="gallery-image rounded-lg shadow-md hover-effect w-full h-48 object-cover cursor-pointer">
-            </div>
-        </div>
-    </section>
-    
-    <!-- Image Popup -->
-    <div id="imagePopup" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="max-w-3xl max-h-full p-4">
-            <img id="popupImage" src="" alt="Enlarged image" class="max-w-full max-h-full object-contain">
+                // Check if posts exist
+                if ($schedule_query->have_posts()) :
+                    while ($schedule_query->have_posts()) : $schedule_query->the_post();
+                        // Get ACF fields
+                        $event_date_time = get_field('game_date'); // ACF DateTime Picker
+                        $event_title = get_the_title(); // Use post title as event title
+
+                        // Format the date/time (adjust format as needed)
+                        $formatted_date = date_i18n('l, F jS', strtotime($event_date_time)); // E.g., "Friday, January 12th"
+                        $formatted_time = date_i18n('g:i A', strtotime($event_date_time)); // E.g., "7:00 PM"
+                        ?>
+                        <li class="flex justify-between text-lg text-gray-700">
+                            <span>
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/dice.png" alt="dice image" class="dice-icon inline-block w-6 h-6 mr-2" alt="dice"> 
+                                <?php echo esc_html($formatted_date); ?> - <?php echo esc_html($event_title); ?>
+                            </span>
+                            <span><?php echo esc_html($formatted_time); ?></span>
+                        </li>
+                        <?php
+                    endwhile;
+                    wp_reset_postdata(); // Reset the query
+                else :
+                    ?>
+                    <li class="text-center text-gray-500">No events scheduled yet.</li>
+                <?php endif; ?>
+            </ul>
         </div>
     </div>
+</section>
+
+
+<section id="gallery" class="gallery-section bg-white my-12">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-semibold">Event Highlights</h2>
+        <p class="mt-4 text-gray-600">Explore memorable moments from previous Boardgame Nights!</p>
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <?php
+            // Query the 'event-highlights' CPT
+            $highlights_query = new WP_Query([
+                'post_type'      => 'event-highlight', // Custom Post Type name
+                'posts_per_page' => -1, // Fetch all posts
+                'order'          => 'ASC', // Adjust sorting if needed
+            ]);
+
+            // Check if posts exist
+            if ($highlights_query->have_posts()) :
+                while ($highlights_query->have_posts()) : $highlights_query->the_post();
+                    // Get the ACF image field
+                    $highlight_image = get_field('event_highlights_image'); // Image field key
+
+                    if (!empty($highlight_image)) : // Check if the image exists
+                        $image_url = esc_url($highlight_image['url']);
+                        $image_alt = esc_attr($highlight_image['alt'] ?: 'Event Highlight Image'); // Use ACF alt or fallback
+                        ?>
+                        <img src="<?php echo $image_url; ?>" 
+                             alt="<?php echo $image_alt; ?>" 
+                             class="gallery-image rounded-lg shadow-md hover-effect w-full h-48 object-cover cursor-pointer">
+                    <?php
+                    endif;
+                endwhile;
+                wp_reset_postdata(); // Reset the query
+            else :
+                ?>
+                <p class="text-gray-500">No event highlights available yet.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+
+    
+    
+    <!-- Image Popup -->
+    <div id="imagePopup" class="fixed inset-0 bg-black bg-opacity-90 cursor-pointer hidden items-center justify-center z-50">
+    <div class="max-w-3xl max-h-full p-4 relative">
+        <!-- Close Button -->
+        <button id="closePopup" class="absolute top-2 right-2 bg-white text-black rounded-full p-2 hover:bg-gray-300 focus:outline-none">
+            close
+        </button>
+
+        <!-- Enlarged Image -->
+        <img id="popupImage" src="" alt="Event enlarged image" class="w-full object-contain">
+    </div>
+</div>
+
 
     <!-- Map Section -->
     <section id="map" class="map-section py-12">
