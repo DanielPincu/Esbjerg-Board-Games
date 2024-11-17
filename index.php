@@ -63,49 +63,49 @@
         <div class="games-carousel">
             <?php
             // Custom Query for the 'game' CPT
-            $args = array(
-                'post_type' => 'game',  // Custom post type 'game'
+            $game_query = new WP_Query([
+                'post_type' => 'game',
                 'posts_per_page' => -1, // Get all the posts
-            );
-            $game_query = new WP_Query($args);
+            ]);
 
             // Check if there are posts
             if ($game_query->have_posts()) :
+                // Get the games to avoid querying inside the loop
                 $games = [];
-                // First loop to get all the games
                 while ($game_query->have_posts()) : $game_query->the_post();
-                    // Get the ACF custom field 'game-image' which should return an array with 'url', 'alt', 'id', etc.
-                    $game_image = get_field('game-image'); // Get the image field as an array
-
-                    $games[] = [
-                        'title' => get_the_title(),
-                        'image_url' => $game_image ? $game_image['url'] : '',
-                        'image_alt' => $game_image && isset($game_image['alt']) ? $game_image['alt'] : get_the_title() // Use alt text or fallback to title
-                    ];
+                    $game_image = get_field('game-image');
+                    // Add game title and image URL to array
+                    if ($game_image) {
+                        $games[] = [
+                            'title' => get_the_title(),
+                            'image_url' => $game_image['sizes']['thumbnail'],
+                            'image_alt' => $game_image['alt'] ?: get_the_title(),
+                        ];
+                    }
                 endwhile;
-                wp_reset_postdata(); // Reset the global post object
+                wp_reset_postdata();
 
-                // Now output the games in three copies for seamless scrolling
-                for ($i = 0; $i < 9; $i++) :
+                // Now duplicate the games 3 times for seamless scrolling
+                for ($i = 0; $i < 3; $i++) : // 3 times for seamless scroll
                     foreach ($games as $game) :
                         ?>
                         <div class="game-item">
-                            <!-- Display the image from ACF if available -->
-                            <?php if ($game['image_url']) : ?>
-                                <img src="<?php echo esc_url($game['image_url']); ?>" alt="<?php echo esc_attr($game['image_alt']); ?>">
-                            <?php endif; ?>
-                            <p><?php echo esc_html($game['title']); ?></p> <!-- Display the game title -->
+                            <img src="<?php echo esc_url($game['image_url']); ?>" 
+                                 alt="<?php echo esc_attr($game['image_alt']); ?>">
+                            <p><?php echo esc_html($game['title']); ?></p>
                         </div>
                         <?php
                     endforeach;
                 endfor;
             else :
-                echo '<p>No games found.</p>'; // Fallback message if no games are found
+                echo '<p>No games found.</p>';
             endif;
             ?>
         </div>
     </div>
 </section>
+
+
 
 
 
