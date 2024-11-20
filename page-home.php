@@ -219,6 +219,53 @@
 </div>
 
 
+<!-- Testimonials Section -->
+<div class="container mx-auto py-20">
+    <main>
+        <h1 class="text-3xl font-semibold text-center pb-10">Testimonials</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <?php
+            $args = array(
+                'post_type' => 'testimonial',
+                'posts_per_page' => -1,
+                'orderby' => 'date',
+                'order' => 'DESC'
+            );
+
+            $testimonials_query = new WP_Query($args);
+
+            if ($testimonials_query->have_posts()) :
+                while ($testimonials_query->have_posts()) : $testimonials_query->the_post();
+            ?>
+                <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col h-full">
+                    <p class="text-gray-700 flex-grow"><?php the_content(); ?></p>
+                    <p class="mt-4 text-right font-semibold text-gray-900 self-end">- <?php the_title(); ?></p>
+                </div>
+            <?php
+                endwhile;
+                wp_reset_postdata();
+            else :
+                echo '<p>No testimonials found.</p>';
+            endif;
+            ?>
+        </div>
+    </main>
+</div>
+
+<div class="mx-auto container mt-10">
+    <p class="md:text-3xl text-center">Leave us a review</p>
+    <?php echo do_shortcode('[contact-form-7 id="502c850" title="Testimonial"]'); ?>
+</div>
+<!-- Testimonials End -->
+
+
+
+
+
+
+
+
     <!-- Map Section -->
     <section id="map" class="map-section py-12">
         <div class="container mx-auto px-4 text-center">
@@ -229,21 +276,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section py-12">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-semibold text-gray-800">Contact Us</h2>
-            <p class="mt-4 text-lg text-gray-600">Have questions or want to learn more? Get in touch!</p>
-            <div class="mt-6">
-                <form action="#" method="post" class="max-w-lg mx-auto">
-                    <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-md border border-gray-300 mt-4" required>
-                    <textarea name="message" placeholder="Your Message" class="w-full p-3 rounded-md border border-gray-300 mt-4" rows="4" required></textarea>
-                    <button type="submit" class="w-full py-3 mt-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
+   
 
 
 

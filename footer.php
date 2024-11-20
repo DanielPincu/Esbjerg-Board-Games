@@ -25,7 +25,7 @@
             <span>|</span>
             <a href="#schedule" class="text-red-300 hover:text-red-400 transition duration-300">Upcoming Events</a>
             <span>|</span>
-            <a href="#contact" class="text-red-300 hover:text-red-400 transition duration-300">Contact Us</a>
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="text-red-300 hover:text-red-400 transition duration-300">Contact Us</a>
         </div>
 
         <div class="flex justify-center space-x-6 mb-6">

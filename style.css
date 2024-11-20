@@ -281,3 +281,24 @@ Date: 2024
     margin-top: 1rem;
     text-align: center;
 }
+
+
+
+
+.testimonial {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.testimonial-content {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    text-align: right;
+}
+
