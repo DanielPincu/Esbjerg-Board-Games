@@ -220,7 +220,7 @@
 
 
 <!-- Testimonials Section -->
-<div class="container mx-auto py-20">
+<div class="container mx-auto px-4 py-20">
     <main>
         <h1 class="text-3xl font-semibold text-center pb-10">Testimonials</h1>
 
@@ -253,7 +253,7 @@
     </main>
 </div>
 
-<div class="mx-auto container mt-10">
+<div class="mx-auto container px-4 mt-10">
     <p class="md:text-3xl text-center">Leave us a review</p>
     <?php echo do_shortcode('[contact-form-7 id="502c850" title="Testimonial"]'); ?>
 </div>

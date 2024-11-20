@@ -9,8 +9,8 @@
     <h2 class="text-2xl font-bold text-red-700 text-center mb-6">Sign Up for Boardgame Night</h2>
     <!-- Contact Form 7 Shortcode -->
     <?php echo do_shortcode('[contact-form-7 id="9545c19" title="sign-up"]'); ?>
-    <p class="mt-6 text-green-700 text-center text-sm">
-      Already signed up? <a href="<?php echo esc_url(home_url('/')); ?>" class="text-red-500 hover:underline">Back to Home Page</a>
+    <p class="mt-6 md:text-xl text-green-700 text-center text-sm">
+      Already signed up? <a href="<?php echo esc_url(home_url('/')); ?>" class="text-red-500 md:text-xl hover:underline">Back to Home Page</a>
     </p>
   </div>
 

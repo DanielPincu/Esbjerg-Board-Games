@@ -10,7 +10,7 @@
     <!-- Contact Form 7 Shortcode -->
     <?php echo do_shortcode('[contact-form-7 id="738fefb" title="Contact"]'); ?>
     <p class="mt-6 text-green-700 text-center text-sm">
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="text-red-500 hover:underline">Back to Home Page</a>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="text-red-500 text-xl hover:underline">Back to Home Page</a>
     </p>
   </div>
 
