@@ -17,3 +17,39 @@ function remove_gutenberg() {
     remove_post_type_support("page", "editor");
 }
 add_action("init", "remove_gutenberg");
+
+
+
+// Populate Contact Form 7 checkboxes with custom post type entries
+
+add_filter('wpcf7_form_tag', 'populate_schedule_checkboxes', 10, 2);
+
+function populate_schedule_checkboxes($tag, $unused) {
+    if ($tag['name'] !== 'schedule-checkboxes') {
+        return $tag;
+    }
+
+    $args = array(
+        'post_type' => 'schedule',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+    );
+    $schedule_posts = get_posts($args);
+
+    $options = array();
+    foreach ($schedule_posts as $post) {
+        $game_date = get_field('game_date', $post->ID);
+        if ($game_date) {
+            $label = sprintf('%s (%s)', $post->post_title, $game_date);
+            $options[] = $label;
+        }
+    }
+
+    $tag['raw_values'] = $options;
+    $tag['values'] = $options;
+    $tag['type'] = 'checkbox';
+
+    return $tag;
+}
+
+   
