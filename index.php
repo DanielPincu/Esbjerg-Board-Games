@@ -37,7 +37,7 @@
             </p>
             <div class="mt-8 flex justify-center space-x-4">
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('signup'))); ?>" class="ml-4 text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
-                <a href="#schedule" class="inline-block px-6 py-3 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition duration-300 shadow-md">View Schedule</a>
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=61551731217525&mibextid=LQQJ4d&rdid=Ig7YmakYWnrl2gSX&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FY3puA2FKfH23T9hn%2F%3Fmibextid%3DLQQJ4d" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300 shadow-md">Visit us on Facebook</a>
             </div>
         </div>
 </section>
@@ -274,7 +274,9 @@
 <!-- Map Section -->
 <section id="map" class="map-section py-12">
         <div class="container mx-auto px-4 text-center">
-            <h6 class="text-3xl font-semibold text-gray-800">Where to Find Us</h6>
+            <h6 class="text-3xl font-semibold text-gray-800">How to Find Us</h6>
+            <p>Torvegade 23, top floor, 6700 Esbjerg</p>
+            <p>+45 91 66 55 69</p>
             <div class="mt-8">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.7827423812083!2d8.453031299999999!3d55.46951029999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c4c44c4678f0d%3A0x9efc215c254bfc43!2sEsbjerg%20Hovedbibliotek!5e0!3m2!1sen!2sdk!4v1633100121299!5m2!1sen!2sdk" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
