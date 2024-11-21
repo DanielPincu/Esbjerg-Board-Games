@@ -4,46 +4,52 @@
     <?php while (have_posts()): the_post(); ?>
 
 
-    <!-- Hero Section with Parallax Effect -->
-    <section 
+
+
+
+<!-- Hero Section with Parallax Effect -->
+<header 
     class="bg-[url('<?php echo esc_url(get_field('hero_image')['url']); ?>')] parallax h-screen bg-cover bg-center relative"
     aria-label="<?php echo esc_attr(get_field('hero_image')['alt']); ?>">
-
-
-   
-
         <div class="bg-overlay"></div>
         <div class="hero-text">
-            <h1 class="md:text-5xl text-3xl font-bold"><?php echo esc_html(get_field('city')); ?></h1>
-            <h1 class="md:text-6xl font-bold"><?php echo esc_html(get_field('club_name')); ?></h1>
+            <h1 class="text-5xl font-bold"><?php echo esc_html(get_field('city')); ?></h1>
+            <h1 class="text-5xl font-bold"><?php echo esc_html(get_field('club_name')); ?></h1>
             <p class="text-xl bg-green-500 md:bg-transparent"><?php echo esc_html(get_field('core_narrative')); ?></p>
             <div class="mt-6 flex justify-center">
                 <a href="#about" class="text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">About</a>
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('join'))); ?>" class="ml-4 text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('signup'))); ?>" class="ml-4 text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
 
             </div>
         </div>
-    </section>
+</header>
 
-    <!-- About Section -->
-    <section id="about" class="about-section text-center py-12 bg-gradient-to-b from-green-50 to-white">
+
+
+
+
+<!-- About Section -->
+<section id="about" class="about-section text-center py-12 bg-gradient-to-b from-green-50 to-white">
         <div class="container mx-auto px-4 relative">
             <h2 class="text-4xl font-semibold text-blue-800"><?php echo esc_html(get_field('edition_name')); ?> of <?php echo esc_html(get_field('club_name')); ?></h2>
             <p class="mt-6 text-lg max-w-2xl mx-auto text-gray-700 bg-white bg-opacity-70 p-4 rounded-lg shadow-sm">
             <?php echo esc_html(get_field('edition_description')); ?>
             </p>
             <div class="mt-8 flex justify-center space-x-4">
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('join'))); ?>" class="ml-4 text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
-
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('signup'))); ?>" class="ml-4 text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
                 <a href="#schedule" class="inline-block px-6 py-3 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition duration-300 shadow-md">View Schedule</a>
             </div>
         </div>
-    </section>
+</section>
 
-       <!-- Games Showcase Carousel -->
+
+
+
+
+<!-- Games Showcase Carousel -->
 <section class="bg-purple-100 my-8 py-8 overflow-hidden">
     <div class="container mx-auto text-center mb-6">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black">Our Games Collection</h2>
+        <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black">Our Games Collection</h3>
     </div>
     <div class="games-carousel-container">
         <div class="games-carousel">
@@ -95,13 +101,14 @@
 
 
 
-    <!-- Schedule Section -->
-    <section id="schedule" class="schedule-section bg-gradient-to-r from-indigo-300 to-indigo-500 flex items-center justify-center text-white py-12">
+
+<!-- Schedule Section -->
+<section id="schedule" class="schedule-section bg-gradient-to-r from-indigo-300 to-indigo-500 flex items-center justify-center text-white py-12">
     <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center">
         <div class="md:w-1/2 mb-8 md:mb-0">
-            <h3 class="text-3xl font-semibold text-black text-center">
+            <h4 class="text-3xl font-semibold text-black text-center">
                 <?php echo esc_html(get_field('edition_name')); ?>
-            </h3>
+            </h4>
             <ul class="mt-6 space-y-4 bg-white p-6 rounded-lg shadow-lg">
                 <?php
                 // Query the 'schedule' CPT
@@ -145,6 +152,11 @@
 </section>
 
 
+
+
+
+
+<!-- Events Highlights -->
 <section id="gallery" class="gallery-section bg-white my-12">
     <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl font-semibold">Event Highlights</h2>
@@ -185,8 +197,8 @@
 
     
     
-    <!-- Image Popup -->
-    <div id="imagePopup" class="fixed inset-0 bg-black bg-opacity-90 cursor-pointer hidden items-center justify-center z-50">
+<!-- Image Popup -->
+<div id="imagePopup" class="fixed inset-0 bg-black bg-opacity-90 cursor-pointer hidden items-center justify-center z-50">
     <div class="max-w-3xl max-h-full p-4 relative">
         <!-- Close Button -->
         <button id="closePopup" class="absolute top-2 right-2 bg-white text-black rounded-full p-2 hover:bg-gray-300 focus:outline-none">
@@ -199,12 +211,14 @@
 </div>
 
 
-<!-- Testimonials Section -->
-<div class="container mx-auto px-4 py-20">
-    <main>
-        <h1 class="text-3xl font-semibold text-center pb-10">Testimonials</h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+<!-- Testimonials Section -->
+<div class="testimonial-container container mx-auto px-4 py-20">
+    <main>
+        <h5 class="text-4xl font-bold text-center text-gray-800 pb-12">Testimonials</h5>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <?php
             $args = array(
                 'post_type' => 'testimonial',
@@ -218,9 +232,14 @@
             if ($testimonials_query->have_posts()) :
                 while ($testimonials_query->have_posts()) : $testimonials_query->the_post();
             ?>
-                <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col h-full">
-                    <p class="text-gray-700 flex-grow"><?php the_content(); ?></p>
-                    <p class="mt-4 text-right font-semibold text-gray-900 self-end">- <?php the_title(); ?></p>
+                <div class="testimonial orange">
+                    <figcaption class="flex flex-col h-full">
+                        <blockquote class="flex-grow">
+                            <?php the_content(); ?>
+                        </blockquote>
+                        <h3 class="text-2xl font-bold text-gray-800"><?php the_title(); ?></h3>
+                        <h4 class="text-sm text-gray-600">Attendant</h4>
+                    </figcaption>
                 </div>
             <?php
                 endwhile;
@@ -233,9 +252,18 @@
     </main>
 </div>
 
-<div class="mx-auto container px-4 mt-10">
-    <p class="md:text-3xl text-center">Leave us a review</p>
-    <?php echo do_shortcode('[contact-form-7 id="502c850" title="Testimonial"]'); ?>
+<div class="mx-auto container p-10 px-4">
+    <p class="md:text-3xl font-bold text-center text-gray-800 mb-8">Leave us a review</p>
+    <div class="max-w-6xl justify-center mx-auto flex testimonial orange">
+        <figcaption>
+            <blockquote>
+                <p class="text-gray-600 text-lg">We value your feedback! Please leave us a review below.</p>
+            </blockquote>
+            <div class="p-4">
+                <?php echo do_shortcode('[contact-form-7 id="502c850" title="Testimonial"]'); ?>
+            </div>
+        </figcaption>
+    </div>
 </div>
 <!-- Testimonials End -->
 
@@ -243,20 +271,16 @@
 
 
 
-
-
-
-    <!-- Map Section -->
-    <section id="map" class="map-section py-12">
+<!-- Map Section -->
+<section id="map" class="map-section py-12">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-semibold text-gray-800">Where to Find Us</h2>
+            <h6 class="text-3xl font-semibold text-gray-800">Where to Find Us</h6>
             <div class="mt-8">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.7827423812083!2d8.453031299999999!3d55.46951029999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c4c44c4678f0d%3A0x9efc215c254bfc43!2sEsbjerg%20Hovedbibliotek!5e0!3m2!1sen!2sdk!4v1633100121299!5m2!1sen!2sdk" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
-    </section>
+</section>
 
-   
 
 
 
