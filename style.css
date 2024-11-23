@@ -7,6 +7,12 @@ Date: 2024
 
 /* Parallax Effect */
 
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+
+body {
+    /* font-family: 'Kode Mono', monospace; */
+}
+
 .parallax {
     background-attachment: fixed;
     background-position: center;
@@ -40,7 +46,6 @@ Date: 2024
     text-transform: uppercase;
     letter-spacing: 4px;
     animation: fadeIn 1.5s ease-in-out;
-    font-family: 'Poppins', sans-serif;
 }
 .parallax .bg-overlay {
     height: 100%;

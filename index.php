@@ -16,7 +16,7 @@
                 </p>
                 <div class="mt-8 flex justify-center space-x-4">
                     <a href="<?php echo esc_url(get_permalink(get_page_by_path('signup'))); ?>" class="ml-4 text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
-                    <a target="_blank" href="https://www.facebook.com/profile.php?id=61551731217525&mibextid=LQQJ4d&rdid=Ig7YmakYWnrl2gSX&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FY3puA2FKfH23T9hn%2F%3Fmibextid%3DLQQJ4d" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300 shadow-md">Visit us on Facebook</a>
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=61551731217525&mibextid=LQQJ4d&rdid=Ig7YmakYWnrl2gSX&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FY3puA2FKfH23T9hn%2F%3Fmibextid%3DLQQJ4d" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300 shadow-md">Visit Facebook</a>
                 </div>
             </div>
         </section>
