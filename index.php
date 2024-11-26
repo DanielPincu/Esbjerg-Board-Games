@@ -51,7 +51,7 @@
         
 
         <!-- START: Gallery Section -->
-        <section id="gallery" class="gallery-section bg-white my-12">
+        <section id="gallery" class="gallery-section bg-white my-32">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl font-semibold">Event Highlights</h2>
                 <p class="mt-4 text-gray-600">Explore memorable moments from previous Boardgame Nights!</p>
@@ -70,9 +70,9 @@
         <!-- END: Gallery Section -->
 
         <!-- START: Testimonials Section -->
-        <section class="testimonial-container container mx-auto px-4 py-20">
+        <section class="testimonial-container container mx-auto px-4 py-10">
             <main>
-                <h5 class="text-4xl font-bold text-center text-gray-800 pb-12">Testimonials</h5>
+                <h5 class="text-4xl font-bold text-center text-gray-800 pb-20">Testimonials</h5>
                 <?php get_template_part('template-parts/testimonials'); ?>
             </main>
         </section>
@@ -80,7 +80,7 @@
 
         <!-- START: Contact Form Section -->
         <div class="mx-auto container p-10 px-4">
-            <p class="md:text-3xl font-bold text-center text-gray-800 mb-8">Leave us a review</p>
+            <p class="md:text-3xl font-bold text-center text-gray-800 pb-20 mt-20">Leave us a review</p>
             <div class="max-w-6xl justify-center mx-auto flex testimonial orange">
                 <figcaption>
                     <blockquote>
@@ -95,7 +95,7 @@
         <!-- END: Contact Form Section -->
 
         <!-- START: Map Section -->
-        <section id="map" class="map-section py-12">
+        <section id="map" class="map-section my-20">
             <div class="container mx-auto px-4 text-center">
                 <h6 class="text-3xl font-semibold text-gray-800">How to Find Us</h6>
                 <p>Torvegade 23, top floor, 6700 Esbjerg</p>

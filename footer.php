@@ -38,7 +38,7 @@
         </div>
 
         <p>&copy; 2024 <?php echo esc_html(get_field('club_name', $page_id)) . ' - ' . esc_html(get_field('city', $page_id));?>. All Rights Reserved</p>
-        <p>Crafted in the basement by <a class="text-blue-300 hover:text-blue-400" href="https://www.linkedin.com/in/catalinavrinceanu/">Catalina</a> & <a class="text-blue-300 hover:text-blue-400" href="https://www.linkedin.com/in/danielpincu/">Daniel</a></p>
+        <p>Crafted in the basement by <a class="text-blue-300 hover:text-blue-400" href="https://www.linkedin.com/in/catalinavrinceanu/">Catalina Vrinceanu</a> & <a class="text-blue-300 hover:text-blue-400" href="https://www.linkedin.com/in/danielpincu/">Daniel Pincu</a></p>
         <!-- If you discovered this online, you're awesome! Greetings from Kate & Daniel! -->
     </div>
 </footer>
