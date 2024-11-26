@@ -8,15 +8,15 @@
         <!-- END: Hero Section -->
          
         <!-- START: About Section -->
-        <section id="about" class="about-section text-center py-12 bg-gradient-to-b from-green-50 to-white">
+        <section id="about" class="about-section text-center py-12">
             <div class="container mx-auto px-4 relative">
-                <h2 class="text-4xl font-semibold text-blue-800"><?php echo esc_html(get_field('edition_name')); ?> of <?php echo esc_html(get_field('club_name')); ?></h2>
-                <p class="mt-6 text-lg max-w-2xl mx-auto text-gray-700 bg-white bg-opacity-70 p-4 rounded-lg shadow-sm">
+                <h2 class="text-4xl font-semibold text-green-800"><?php echo esc_html(get_field('edition_name')); ?> of <?php echo esc_html(get_field('club_name')); ?></h2>
+                <p class="mt-6 text-lg max-w-2xl mx-auto text-gray-700 bg-white bg-opacity-70 md:p-10 p-5 rounded-lg shadow-xl shadow-green-800">
                     <?php echo esc_html(get_field('edition_description')); ?>
                 </p>
                 <div class="mt-8 flex justify-center space-x-4">
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('signup'))); ?>" class="ml-4 text-white hover:text-red-400 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
-                    <a target="_blank" href="https://www.facebook.com/profile.php?id=61551731217525&mibextid=LQQJ4d&rdid=Ig7YmakYWnrl2gSX&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FY3puA2FKfH23T9hn%2F%3Fmibextid%3DLQQJ4d" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300 shadow-md">Visit Facebook</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('signup'))); ?>" class="ml-4 text-slate-100 font-semibold hover:text-orange-500 px-8 py-3 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=61551731217525&mibextid=LQQJ4d&rdid=Ig7YmakYWnrl2gSX&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FY3puA2FKfH23T9hn%2F%3Fmibextid%3DLQQJ4d" class="inline-block font-semibold px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300 shadow-md">Visit Facebook</a>
                 </div>
             </div>
         </section>
@@ -25,9 +25,9 @@
 
 
         <!-- START: Game Details Section -->
-        <section class="bg-purple-100 my-8 py-8 overflow-hidden">
+        <section class="bg-orange-500 my-8 py-8 overflow-hidden">
             <div class="container mx-auto text-center mb-6">
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black">Our Games Collection</h3>
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-100">Our Games Collection</h3>
             </div>
             <div class="games-carousel-container">
                 <?php get_template_part('template-parts/games-carousel'); ?>
@@ -37,10 +37,10 @@
 
 
         <!-- START: Schedule Section -->
-        <section id="schedule" class="schedule-section bg-gradient-to-r from-indigo-300 to-indigo-500 flex items-center justify-center text-white py-12">
+        <section id="schedule" class="schedule-section bg-gradient-to-r from-green-500 to-green-700 flex items-center justify-center text-white py-12">
             <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center">
                 <div class="md:w-1/2 mb-8 md:mb-0">
-                    <h4 class="text-3xl font-semibold text-black text-center">
+                    <h4 class="text-3xl font-semibold text-slate-100 text-center">
                         <?php echo esc_html(get_field('edition_name')); ?>
                     </h4>
                     <?php get_template_part('template-parts/schedule'); ?>
@@ -51,17 +51,17 @@
         
 
         <!-- START: Gallery Section -->
-        <section id="gallery" class="gallery-section bg-white my-32">
+        <section id="gallery" class="gallery-section py-20 my-32 bg-gradient-to-b from-orange-500 to-green-300">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl font-semibold">Event Highlights</h2>
-                <p class="mt-4 text-gray-600">Explore memorable moments from previous Boardgame Nights!</p>
+                <h2 class="text-3xl font-bold text-slate-100">Event Highlights</h2>
+                <p class="mt-4 font-semibold text-slate-100">Explore memorable moments from previous Boardgame Nights!</p>
                 <?php get_template_part('template-parts/event-highlights'); ?>
             </div>
         </section>
 
         <div id="imagePopup" class="fixed inset-0 bg-black bg-opacity-90 cursor-pointer hidden items-center justify-center z-50">
             <div class="max-w-3xl max-h-full p-4 relative">
-                <button id="closePopup" class="absolute top-2 right-2 bg-white text-black rounded-full p-2 hover:bg-gray-300 focus:outline-none">
+                <button id="closePopup" class="absolute top-2 right-2 bg-white text-slate-800 rounded-full p-2 hover:bg-gray-300 focus:outline-none">
                     close
                 </button>
                 <img id="popupImage" src="" alt="Event enlarged image" class="w-full object-contain">
@@ -70,7 +70,7 @@
         <!-- END: Gallery Section -->
 
         <!-- START: Testimonials Section -->
-        <section class="testimonial-container container mx-auto px-4 py-10">
+        <section class="testimonial-container border-t-[6px] border-orange-600 flex container mx-auto px-4 py-20 pb-44 shadow-xl rounded-xl">
             <main>
                 <h5 class="text-4xl font-bold text-center text-gray-800 pb-20">Testimonials</h5>
                 <?php get_template_part('template-parts/testimonials'); ?>
@@ -96,7 +96,7 @@
 
         <!-- START: Map Section -->
         <section id="map" class="map-section my-20">
-            <div class="container mx-auto px-4 text-center">
+            <div class="container mx-auto px-4 text-center border-t-4 border-orange-600 py-20">
                 <h6 class="text-3xl font-semibold text-gray-800">How to Find Us</h6>
                 <p>Torvegade 23, top floor, 6700 Esbjerg</p>
                 <p>+45 91 66 55 69</p>

@@ -24,7 +24,7 @@
                 ?>
                 <div class="game-item">
                     <img src="<?php echo esc_url($game['image_url']); ?>" alt="<?php echo esc_attr($game['image_alt']); ?>">
-                    <p><?php echo esc_html($game['title']); ?></p>
+                    <p class="text-slate-100"><?php echo esc_html($game['title']); ?></p>
                 </div>
                 <?php
             endforeach;

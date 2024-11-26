@@ -1,5 +1,5 @@
 /*
-Title: Climate Action
+Title: Esbjerg Board Games Theme
 Author: Catalina Vrinceanu & Daniel Pincu
 Date: 2024
 */
@@ -7,11 +7,14 @@ Date: 2024
 
 /* Parallax Effect */
 
-@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap');
 
 body {
-    /* font-family: 'Kode Mono', monospace; */
+    font-family: 'Playpen Sans', sans-serif;
+    
 }
+
+
 
 .parallax {
     background-attachment: fixed;
@@ -116,7 +119,6 @@ body {
 
 .game-item p {
     margin-top: 10px;
-    color: #470073; 
     font-weight: bold;
 }
 
@@ -262,13 +264,13 @@ body {
 
 .wpcf7-acceptance .wpcf7-list-item-label {
     font-size: 0.875rem;
-    color: #047857; /* Green-700 */
+    color: #047857; 
 }
 
 .wpcf7-submit {
     width: 100%;
     padding: 0.75rem;
-    background-color: #DC2626; /* Red-600 */
+    background-color: green; 
     color: white;
     font-weight: 600;
     border-radius: 0.5rem;
@@ -278,7 +280,8 @@ body {
 }
 
 .wpcf7-submit:hover {
-    background-color: #B91C1C; /* Red-700 */
+    background-color: #047857; 
+    color: orange;
 }
 
 .wpcf7-response-output {
@@ -333,6 +336,7 @@ body {
 .testimonial figcaption:before {
     content: "🧩"; /* Puzzle piece emoji */
     font-size: 40px; /* Adjust size as needed */
+    font-family: sans-serif;
     position: absolute;
     top: -40px;
     left: 50%;

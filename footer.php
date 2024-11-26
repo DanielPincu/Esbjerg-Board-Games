@@ -25,20 +25,20 @@
 
         <div class="flex justify-center space-x-6 mb-4">
             
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="text-blue-300 hover:text-blue-400 transition duration-300">Contact Us</a>
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="text-orange-300 hover:text-orange-400 transition duration-300">Contact Us</a>
             <span>|</span>
-            <a href="<?php echo esc_url(get_permalink(get_page_by_path('signup'))); ?>" class="text-blue-300 hover:text-blue-400 transition duration-300">Signup</a>
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('signup'))); ?>" class="text-orange-300 hover:text-orange-400 transition duration-300">Signup</a>
            
 
             <!-- Facebook Link -->
             <span>|</span>
-            <a href="https://www.facebook.com/profile.php?id=61551731217525&mibextid=LQQJ4d&rdid=Ig7YmakYWnrl2gSX&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FY3puA2FKfH23T9hn%2F%3Fmibextid%3DLQQJ4d" target="_blank" class="text-blue-300 hover:text-blue-400 transition duration-300">
+            <a href="https://www.facebook.com/profile.php?id=61551731217525&mibextid=LQQJ4d&rdid=Ig7YmakYWnrl2gSX&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FY3puA2FKfH23T9hn%2F%3Fmibextid%3DLQQJ4d" target="_blank" class="text-orange-300 hover:text-orange-400 transition duration-300">
                 Facebook
             </a>
         </div>
 
         <p>&copy; 2024 <?php echo esc_html(get_field('club_name', $page_id)) . ' - ' . esc_html(get_field('city', $page_id));?>. All Rights Reserved</p>
-        <p>Crafted in the basement by <a class="text-blue-300 hover:text-blue-400" href="https://www.linkedin.com/in/catalinavrinceanu/">Catalina Vrinceanu</a> & <a class="text-blue-300 hover:text-blue-400" href="https://www.linkedin.com/in/danielpincu/">Daniel Pincu</a></p>
+        <p>Crafted in the basement by <a class="text-orange-300 hover:text-orange-400" href="https://www.linkedin.com/in/catalinavrinceanu/">Catalina Vrinceanu</a> & <a class="text-orange-300 hover:text-orange-400" href="https://www.linkedin.com/in/danielpincu/">Daniel Pincu</a></p>
         <!-- If you discovered this online, you're awesome! Greetings from Kate & Daniel! -->
     </div>
 </footer>
