@@ -10,7 +10,7 @@
         while ($highlights_query->have_posts()) : $highlights_query->the_post();
             $highlight_image = get_field('event_highlights_image');
             if (!empty($highlight_image)) :
-                $image_url = esc_url($highlight_image['url']);
+                $image_url = esc_url($highlight_image['sizes']['large']);
                 $image_alt = esc_attr($highlight_image['alt'] ?: 'Event Highlight Image');
                 ?>
                 <img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" class="gallery-image rounded-lg shadow-md hover-effect w-full h-48 object-cover cursor-pointer">
