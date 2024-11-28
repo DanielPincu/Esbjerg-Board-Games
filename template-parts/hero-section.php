@@ -1,4 +1,4 @@
-<header class="bg-[url('<?php echo esc_url(get_field('hero_image')['url']); ?>')] parallax h-screen bg-cover bg-center relative" aria-label="<?php echo esc_attr(get_field('hero_image')['alt']); ?>">
+<header class="bg-[url('<?php echo esc_url(get_field('hero_image')['url']); ?>')] parallax h-screen bg-cover bg-center relative" aria-label="<?php echo esc_attr(get_field('hero_image')['alt']); ?>" data-aos="fade-in">
     <div class="bg-overlay"></div>
     <div class="hero-text bg-black w-[99vw] py-20 bg-opacity-50">
         

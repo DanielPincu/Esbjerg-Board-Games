@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", function () {
+    AOS.init({
+        duration: 1000, // Animation duration in ms
+        once: true, // Run animation only once
+    });
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     setupLoadMore('load-more-highlights', 'event-highlights-container', 'img');
     setupLoadMore('load-more-testimonials', 'testimonials-container', 'testimonial');

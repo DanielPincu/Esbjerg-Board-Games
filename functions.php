@@ -3,13 +3,20 @@ function boardgames_resources() {
     // Enqueue Tailwind CSS
     wp_enqueue_script("tailwind-css", "https://cdn.tailwindcss.com");
     
+    // Enqueue AOS CSS
+    wp_enqueue_style("aos-css", "https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css");
+    
+    // Enqueue AOS JS
+    wp_enqueue_script("aos-js", "https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js", array(), null, true);
+    
     // Enqueue custom style 
     wp_enqueue_style("boardgames-style", get_template_directory_uri() . "/style.css");
     
     // Enqueue custom JavaScript file
-    wp_enqueue_script("boardgames-js", get_template_directory_uri() . "/script.js", array(), false, true);
+    wp_enqueue_script("boardgames-js", get_template_directory_uri() . "/script.js", array('aos-js'), null, true);
 }
 add_action("wp_enqueue_scripts", "boardgames_resources");
+
 
 // Function to remove Gutenberg editor
 function remove_gutenberg() {
