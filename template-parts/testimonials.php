@@ -1,4 +1,4 @@
-<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<section id="testimonials-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     <?php
     $args = array(
         'post_type' => 'testimonial',
@@ -7,10 +7,12 @@
         'order' => 'DESC'
     );
     $testimonials_query = new WP_Query($args);
+    $count = 0;
     if ($testimonials_query->have_posts()) :
         while ($testimonials_query->have_posts()) : $testimonials_query->the_post();
+            $display = $count < 3 ? '' : 'style="display: none;"';
             ?>
-            <article class="testimonial orange">
+            <article class="testimonial orange" <?php echo $display; ?>>
                 <figcaption class="flex flex-col h-full">
                     <blockquote class="flex-grow">
                         <?php the_content(); ?>
@@ -20,6 +22,7 @@
                 </figcaption>
             </article>
             <?php
+            $count++;
         endwhile;
         wp_reset_postdata();
     else :
@@ -27,3 +30,11 @@
     endif;
     ?>
 </section>
+
+<?php if ($count > 3) : ?>
+    <div class="text-center mt-8">
+        <button id="load-more-testimonials" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+            Load More Testimonials
+        </button>
+    </div>
+<?php endif; ?>

@@ -1,3 +1,40 @@
+document.addEventListener('DOMContentLoaded', function() {
+    setupLoadMore('load-more-highlights', 'event-highlights-container', 'img');
+    setupLoadMore('load-more-testimonials', 'testimonials-container', 'testimonial');
+});
+
+function setupLoadMore(buttonId, containerId, itemSelector) {
+    var loadMoreButton = document.getElementById(buttonId);
+    var container = document.getElementById(containerId);
+    
+    if (!loadMoreButton || !container) {
+        console.error('Required elements not found for ' + buttonId);
+        return;
+    }
+
+    var items = itemSelector === 'img' ? container.getElementsByTagName(itemSelector) : container.getElementsByClassName(itemSelector);
+    var visibleCount = 3;
+
+    // Initially hide items beyond the first 3
+    for (var i = visibleCount; i < items.length; i++) {
+        items[i].style.display = 'none';
+    }
+
+    loadMoreButton.addEventListener('click', function() {
+        for (var i = visibleCount; i < visibleCount + 3 && i < items.length; i++) {
+            items[i].style.display = 'block';
+        }
+        visibleCount += 3;
+        if (visibleCount >= items.length) {
+            loadMoreButton.style.display = 'none';
+        }
+    });
+
+    // If there are 3 or fewer items, hide the button
+    if (items.length <= 3) {
+        loadMoreButton.style.display = 'none';
+    }
+}
 
 // Snowflake creation
 function createSnowflake() {
